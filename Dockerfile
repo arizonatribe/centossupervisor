@@ -1,26 +1,5 @@
-FROM centos:centos7
+FROM arizonatribe/centos
 MAINTAINER David Nunez <arizonatribe@gmail.com>
-
-# Make sure we're using the proper terminal environment
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-ENV TERM xterm
-
-# Install general OS utilities
-RUN yum install -y \
-     curl \
-     epel-release \
-     git \
-     jq \
-     man \
-     tar \
-     vim \
-     wget
-
-# Install Make tools
-RUN yum install -y \
-     gcc-c++ \
-     glibc-devel \
-     make
 
 # Install python-related tools
 RUN yum install -y \
@@ -31,3 +10,4 @@ RUN yum install -y \
 RUN pip install --upgrade pip
 RUN easy_install supervisor
 
+RUN yum -y clean all
