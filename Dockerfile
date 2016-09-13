@@ -8,6 +8,7 @@ RUN yum install -y \
      python-setuptools \
      supervisor
 RUN pip install --upgrade pip
+RUN pip install supervisor-stdout
 RUN easy_install supervisor
 
 RUN yum -y clean all
